@@ -15,19 +15,19 @@
 // //console.log(items);
 // // items[1].textContent="Hello";
 // // items[1].style.fontWeight='bold';
-items[2].style.backgroundColor='green';
-for(var i=0;i<items.length;i++)
-{
+// items[2].style.backgroundColor='green';
+// for(var i=0;i<items.length;i++)
+// {
     
-    items[i].style.fontWeight='bold';
-}
-//we cannot update new ithem with items 
+//     items[i].style.fontWeight='bold';
+// }
+// //we cannot update new ithem with items 
 
 
-//li  works same as items from above
-var li=document.getElementsByTagName('li');
-li[1].textContent="Hello";
-li[4].style.fontWeight='bold';//new item can be updated here
+// //li  works same as items from above
+// var li=document.getElementsByTagName('li');
+// li[1].textContent="Hello";
+// li[4].style.fontWeight='bold';//new item can be updated here
 
 
 //quorySelector
@@ -43,11 +43,11 @@ li[4].style.fontWeight='bold';//new item can be updated here
 // var li=document.querySelector('.list-group-item');
 // li.style.color="red";
 
-// var lst=document.querySelector('.list-group-item:last-child');
-// lst.style.color="blue";
+var lst=document.querySelector('.list-group-item:nth-child(2)');
+lst.style.color="green";
 
-// var lst=document.querySelector('.list-group-item:nth-child(2)');
-// lst.style.color="coral";
+var lst=document.querySelector('.list-group-item:nth-child(3)');
+lst.style.display='none';
 
 //query selector all
 // var title=document.querySelectorAll('.title');
