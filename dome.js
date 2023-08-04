@@ -63,77 +63,114 @@
 //     even[i].style.backgroundColor='#f4f';
 // }
 
-var itemsList= document.querySelector('#items');
+//var itemsList= document.querySelector('#items');
 //parent Node
 // console.log(itemsList.parentNode);
 // itemsList.parentNode.style.backgroundColor='#ccc';
 // console.log(itemsList.parentNode.parentNode);
 
 // parentElement
-console.log(itemsList.parentElement);
-itemsList.parentElement.style.backgroundColor='#ccc';
-console.log(itemsList.parentElement.parentElement);
+// console.log(itemsList.parentElement);
+// itemsList.parentElement.style.backgroundColor='#ccc';
+// console.log(itemsList.parentElement.parentElement);
 
 //childNodes it counts nodes with space as text so it better to not to use it.
 
 // childNodes
-console.log(itemsList.children);
-console.log(itemsList.children[1]);
-itemsList.children[1].style.backgroundColor='yellow';
+// console.log(itemsList.children);
+// console.log(itemsList.children[1]);
+// itemsList.children[1].style.backgroundColor='yellow';
 
 // //FirstChild it counts line break as text
 
 // //firstelementchild
-console.log(itemsList.firstElementChild);
-itemsList.firstElementChild.textContent='Hello 1';
+// console.log(itemsList.firstElementChild);
+// itemsList.firstElementChild.textContent='Hello 1';
  
-//lastChild it counts line break as text
+// //lastChild it counts line break as text
 
-//lastelementchild
-//console.log(itemsList.lastElementChild);
-itemsList.lastElementChild.textContent='Hello 4';
+// //lastelementchild
+// //console.log(itemsList.lastElementChild);
+// itemsList.lastElementChild.textContent='Hello 4';
 
-// nextSibilings it counts line breaks as text so it better to not to use it.
+// // nextSibilings it counts line breaks as text so it better to not to use it.
 
-//nextElementsibiling
-//console.log(itemsList.nextElementSibling);
+// //nextElementsibiling
+// //console.log(itemsList.nextElementSibling);
 
-//previousSibiling it counts line breaks as text so it better to not to use it.
+// //previousSibiling it counts line breaks as text so it better to not to use it.
 
-//previousElementSibiling
-// console.log(itemsList.previousElementSibling);
-itemsList.previousElementSibling.style.color='green';
+// //previousElementSibiling
+// // console.log(itemsList.previousElementSibling);
+// itemsList.previousElementSibling.style.color='green';
 
-// createElement
+// // createElement
 
-//create a div
-var newDiv= document.createElement('div');
+// //create a div
+// var newDiv= document.createElement('div');
 
-//add class
- newDiv.className='hello';
+// //add class
+//  newDiv.className='hello';
 
- //add attribute
- newDiv.setAttribute('title','Hello Div');
+//  //add attribute
+//  newDiv.setAttribute('title','Hello Div');
 
- //Create text node
- var newDevtext=document.createTextNode('Hello World');
+//  //Create text node
+//  var newDevtext=document.createTextNode('Hello World');
 
- //add text to div
- newDiv.appendChild(newDevtext);
+//  //add text to div
+//  newDiv.appendChild(newDevtext);
 
- var container=document.querySelector('header .container');
- var h1=document.querySelector('header h1');
+//  var container=document.querySelector('header .container');
+//  var h1=document.querySelector('header h1');
 
-console.log(newDiv);
-newDiv.style.fontSize= '30px';
-container.insertBefore(newDiv,h1);
+// console.log(newDiv);
+// newDiv.style.fontSize= '30px';
+// container.insertBefore(newDiv,h1);
 
-var anotherNewDiv=document.createElement('div');
-var anotherNewDevText=document.createTextNode('HEllo world');
-anotherNewDiv.appendChild(anotherNewDevText);
+// var anotherNewDiv=document.createElement('div');
+// var anotherNewDevText=document.createTextNode('HEllo world');
+// anotherNewDiv.appendChild(anotherNewDevText);
  
-var item=document.querySelector('#items');
-var first=document.querySelector('.list-group-item:nth-child(1)');
+// var item=document.querySelector('#items');
+// var first=document.querySelector('.list-group-item:nth-child(1)');
 
-item.insertBefore(anotherNewDiv,first);
-console.log(anotherNewDiv);
+// item.insertBefore(anotherNewDiv,first);
+// console.log(anotherNewDiv);
+
+var form = document.getElementById('addForm');
+var itemsList=document.getElementById('items')
+
+form.addEventListener('submit',addItem);
+
+itemsList.addEventListener('click',removeItem);
+ function addItem(e){
+    e.preventDefault();
+    var newItem=document.getElementById('item').value;
+     var li=document.createElement('li');
+     li.className="list-group-item";
+     li.appendChild(document.createTextNode(newItem));
+     var deleteBtn=document.createElement('button');
+     deleteBtn.className='btn btn-danger btn-sm float-right delete';
+     deleteBtn.appendChild(document.createTextNode('X'));
+     li.appendChild(deleteBtn);
+
+     //add editbutton
+     var editBtn=document.createElement('button')
+     editBtn.className='btn btn-primary btn-sm float-right';
+     editBtn.appendChild(document.createTextNode('Edit'));
+     li.appendChild(editBtn);
+
+     itemsList.appendChild(li);
+
+ }
+ function removeItem(e){
+    if(e.target.classList.contains('delete')){
+        if(confirm('Are you sure?'))
+        {
+            var li=e.target.parentElement;
+            itemsList.removeChild(li);
+        }
+    }
+
+ }
