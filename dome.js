@@ -11,7 +11,7 @@
 // header.style.borderBottom='solid 3px #000';
 
 
- var items=document.getElementsByClassName('list-group-item');
+//var items=document.getElementsByClassName('list-group-item');
 // //console.log(items);
 // // items[1].textContent="Hello";
 // // items[1].style.fontWeight='bold';
@@ -43,11 +43,11 @@
 // var li=document.querySelector('.list-group-item');
 // li.style.color="red";
 
-var lst=document.querySelector('.list-group-item:nth-child(2)');
-lst.style.color="green";
+// var lst=document.querySelector('.list-group-item:nth-child(2)');
+// lst.style.color="green";
 
-var lst=document.querySelector('.list-group-item:nth-child(3)');
-lst.style.display='none';
+// var lst=document.querySelector('.list-group-item:nth-child(3)');
+// lst.style.display='none';
 
 //query selector all
 // var title=document.querySelectorAll('.title');
@@ -62,3 +62,78 @@ lst.style.display='none';
 //     odd[i].style.backgroundColor='#f4f4f4';
 //     even[i].style.backgroundColor='#f4f';
 // }
+
+var itemsList= document.querySelector('#items');
+//parent Node
+// console.log(itemsList.parentNode);
+// itemsList.parentNode.style.backgroundColor='#ccc';
+// console.log(itemsList.parentNode.parentNode);
+
+// parentElement
+console.log(itemsList.parentElement);
+itemsList.parentElement.style.backgroundColor='#ccc';
+console.log(itemsList.parentElement.parentElement);
+
+//childNodes it counts nodes with space as text so it better to not to use it.
+
+// childNodes
+console.log(itemsList.children);
+console.log(itemsList.children[1]);
+itemsList.children[1].style.backgroundColor='yellow';
+
+// //FirstChild it counts line break as text
+
+// //firstelementchild
+console.log(itemsList.firstElementChild);
+itemsList.firstElementChild.textContent='Hello 1';
+ 
+//lastChild it counts line break as text
+
+//lastelementchild
+//console.log(itemsList.lastElementChild);
+itemsList.lastElementChild.textContent='Hello 4';
+
+// nextSibilings it counts line breaks as text so it better to not to use it.
+
+//nextElementsibiling
+//console.log(itemsList.nextElementSibling);
+
+//previousSibiling it counts line breaks as text so it better to not to use it.
+
+//previousElementSibiling
+// console.log(itemsList.previousElementSibling);
+itemsList.previousElementSibling.style.color='green';
+
+// createElement
+
+//create a div
+var newDiv= document.createElement('div');
+
+//add class
+ newDiv.className='hello';
+
+ //add attribute
+ newDiv.setAttribute('title','Hello Div');
+
+ //Create text node
+ var newDevtext=document.createTextNode('Hello World');
+
+ //add text to div
+ newDiv.appendChild(newDevtext);
+
+ var container=document.querySelector('header .container');
+ var h1=document.querySelector('header h1');
+
+console.log(newDiv);
+newDiv.style.fontSize= '30px';
+container.insertBefore(newDiv,h1);
+
+var anotherNewDiv=document.createElement('div');
+var anotherNewDevText=document.createTextNode('HEllo world');
+anotherNewDiv.appendChild(anotherNewDevText);
+ 
+var item=document.querySelector('#items');
+var first=document.querySelector('.list-group-item:nth-child(1)');
+
+item.insertBefore(anotherNewDiv,first);
+console.log(anotherNewDiv);
