@@ -21,10 +21,14 @@ for(var i=0;i<items.length;i++)
     
     items[i].style.fontWeight='bold';
 }
+//we cannot update new ithem with items 
+
 
 //li  works same as items from above
-// var li=document.getElementsByTagName('li');
-// li[1].textContent="Hello";
+var li=document.getElementsByTagName('li');
+li[1].textContent="Hello";
+li[4].style.fontWeight='bold';//new item can be updated here
+
 
 //quorySelector
 // var header=document.querySelector('#main-header');
